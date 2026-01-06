@@ -7,9 +7,12 @@ def get_book_text(_path_to_file):
     return content_
     
 def main():
-    #print(get_book_text("books/frankenstein.txt"))
-    #number_of_words_ = count_words("books/frankenstein.txt")
-    path_to_book = 'books/frankenstein.txt'
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    print(sys.argv)
+    #return
+    path_to_book = sys.argv[1]
     text = get_book_text(path_to_book)
     number_of_words = count_words(text)
     char_dict = count_letters(text)
