@@ -10,6 +10,21 @@ def count_words(text_):
     words_ = text_.split()
     return len(words_)
 
+def list_most_common_words(text, number_of_words):
+    text_ = text.lower()
+    words_ = text_.split()
+    words_dict_ = {}
+    dict_list_ = []
+    for word_ in words_:
+        if word_ in words_dict_:
+            words_dict_[word_] += 1
+        else:
+            words_dict_[word_] = 1
+    for entry_ in words_dict_:
+        dict_list_.append({'word': entry_, 'num': words_dict_[entry_]})
+    dict_list_.sort(key=sort_on, reverse=True)
+    return dict_list_[:number_of_words:1]
+
 def count_letters(text_):
     text_lowercase_ = text_.lower()
     character_dictionary_ = {}
